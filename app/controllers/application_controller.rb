@@ -48,7 +48,7 @@ end
         else
           redirect '/login'
         end
-      end      
+      end
 
 
     get "/failure" do
