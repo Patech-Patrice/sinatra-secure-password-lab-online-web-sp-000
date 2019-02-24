@@ -36,21 +36,29 @@ class ApplicationController < Sinatra::Base
 
 		 if user && user.authenticate(params[:password])
      session[:user_id] = user.id
-     redirect "/account"
+     redirect "/success"
    else
      redirect "/failure"
    end
 end
 
+    get '/success' do
+      if logged_in?
+          erb :success
+        else
+          redirect '/login'
+        end
+      end      
 
-  get "/failure" do
-    erb :failure
-  end
 
-  get "/logout" do
+    get "/failure" do
+     erb :failure
+    end
+
+   get "/logout" do
     session.clear
     redirect "/"
-  end
+   end
 
   helpers do
     def logged_in?
