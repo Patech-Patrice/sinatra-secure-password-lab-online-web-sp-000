@@ -21,6 +21,7 @@ class ApplicationController < Sinatra::Base
 
 		user.save ? redirect "/login" : redirect "/failure"
 	end
+end
 
 	get "/login" do
 		erb :login
