@@ -50,14 +50,6 @@ end
 end
 
 
-get "/success" do
-if logged_in?
-  erb :success
-else
-  redirect to "/login"
-end
-end
-
   get "/failure" do
     erb :failure
   end
